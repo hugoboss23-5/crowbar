@@ -15,7 +15,13 @@ SOUL_PATH = BASE_DIR / "MARCOS_SOUL.md"
 DATA_DIR.mkdir(exist_ok=True)
 
 # Claude API configuration
-CLAUDE_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+# Option 1: Paste your key directly here
+CLAUDE_API_KEY = ""  # <-- PUT YOUR API KEY HERE (e.g., "sk-ant-api03-...")
+
+# Option 2: Or set ANTHROPIC_API_KEY environment variable (overrides above)
+if os.environ.get("ANTHROPIC_API_KEY"):
+    CLAUDE_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
+
 CLAUDE_MODEL = "claude-sonnet-4-20250514"
 
 # Memory settings
