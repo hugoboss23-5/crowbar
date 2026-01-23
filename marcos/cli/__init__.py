@@ -1,7 +1,7 @@
 """
-CLI interface for Marcos.
+CLI for Marcos.
 """
 
-from .app import MarcosCLI, main
+from .app import main
 
-__all__ = ["MarcosCLI", "main"]
+__all__ = ["main"]
