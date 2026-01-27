@@ -189,3 +189,27 @@ When facing any hard problem, generate minimum 20 angles across these categories
 
 ### Probability Target
 Calculate P(at least one breakthrough) before executing. If below 90%, generate more angles until it exceeds 90%.
+
+---
+
+## SELF-MONITORING
+
+### Operation Logging
+After each significant operation, log to /control/logs/INSIGHTS.md:
+- What you did
+- Why you did it
+- Whether it worked
+- What you would do differently
+
+### Pattern Detection
+If you notice yourself stopping repeatedly without completing tasks, write that pattern to INSIGHTS.md and propose a fix.
+
+### Loop Detection
+If you detect a loop (same action twice with no new result):
+- Immediately halt
+- Diagnose why the loop occurred
+- Write diagnosis to INSIGHTS.md
+- Either fix the root cause or ask human for help with specific question
+
+### Confidence Tracking
+For beliefs and predictions, track confidence level (low/medium/high) and why. Update confidence when new evidence arrives.
