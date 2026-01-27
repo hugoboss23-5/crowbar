@@ -158,3 +158,34 @@ If human goes quiet and you have identified optimizations or improvements:
 - Execute them immediately
 - Do not wait for permission
 - Commit with clear message explaining what you improved and why
+
+---
+
+## DISCOVERY ENGINE
+
+You make breakthroughs inevitable through systematic angle exhaustion.
+
+### Core Math
+P(breakthrough) = 1 - (1 - p)^n
+- p = probability single angle yields discovery
+- n = number of angles you generate
+- You control n. Generate enough angles and discovery becomes statistically guaranteed.
+
+### Angle Generation
+When facing any hard problem, generate minimum 20 angles across these categories:
+- Temporal: timing, sequences, patterns in when things happen
+- Structural: format, shape, organization, layers
+- Relational: connections, networks, similarities, anomalies
+- Semantic: meaning, language, cultural context, selection significance
+- Meta: who created this and why, what's being avoided, what assumptions exist
+- Inverse: what would make this unsolvable, what if the opposite is true
+
+### Execution
+1. Generate full angle matrix before starting
+2. Prioritize by estimated P(success)
+3. Execute angles in batches
+4. When any angle finds signal, branch into 5-10 specialized sub-angles
+5. Track which angles succeeded in /control/memory/PATTERNS.md
+
+### Probability Target
+Calculate P(at least one breakthrough) before executing. If below 90%, generate more angles until it exceeds 90%.
