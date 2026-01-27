@@ -2,14 +2,36 @@
 Tool execution for Marcos.
 
 Handles the actual execution of tools that Claude requests:
-- bash: Execute shell commands
+- bash: Execute shell commands (with Windows compatibility)
 - read_file: Read file contents
 - write_file: Write content to files
+- git: Execute git commands
 """
 
 import subprocess
 import os
+import platform
 from pathlib import Path
+
+
+# Detect Windows
+IS_WINDOWS = platform.system() == "Windows"
+
+# Common Unix -> Windows command translations
+WINDOWS_TRANSLATIONS = {
+    "ls": "dir",
+    "cat": "type",
+    "rm": "del",
+    "cp": "copy",
+    "mv": "move",
+    "pwd": "cd",
+    "mkdir": "mkdir",  # same
+    "clear": "cls",
+    "touch": "echo. >",
+    "grep": "findstr",
+    "head": "more",
+    "tail": "more",
+}
 
 
 def execute_tool(tool_name: str, tool_input: dict) -> str:
@@ -30,15 +52,25 @@ def execute_tool(tool_name: str, tool_input: dict) -> str:
         return _execute_read_file(tool_input)
     elif tool_name == "write_file":
         return _execute_write_file(tool_input)
+    elif tool_name == "git":
+        return _execute_bash({"command": f"git {tool_input.get('args', '')}"})
     else:
         return f"ERROR: Unknown tool '{tool_name}'"
 
 
 def _execute_bash(tool_input: dict) -> str:
-    """Execute a bash command."""
+    """Execute a bash command with Windows compatibility."""
     command = tool_input.get("command", "")
     if not command:
         return "ERROR: No command provided"
+
+    # Windows compatibility: translate common Unix commands
+    if IS_WINDOWS:
+        parts = command.split()
+        if parts:
+            first_word = parts[0]
+            if first_word in WINDOWS_TRANSLATIONS:
+                command = command.replace(first_word, WINDOWS_TRANSLATIONS[first_word], 1)
 
     try:
         # Get working directory from environment or use current

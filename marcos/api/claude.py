@@ -59,6 +59,20 @@ TOOLS = [
             },
             "required": ["path", "content"]
         }
+    },
+    {
+        "name": "git",
+        "description": "Execute a git command. Use for commits, pushes, pulls, status checks.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "args": {
+                    "type": "string",
+                    "description": "Git arguments (e.g., 'status', 'add .', 'commit -m \"message\"', 'push')"
+                }
+            },
+            "required": ["args"]
+        }
     }
 ]
 
