@@ -16,13 +16,14 @@ DATA_DIR.mkdir(exist_ok=True)
 
 # Claude API configuration
 # Option 1: Paste your key directly here
-CLAUDE_API_KEY = ""  # <-- PUT YOUR API KEY HERE (e.g., "sk-ant-api03-...")
+CLAUDE_API_KEY = "os.environ.get("ANTHROPIC_API_KEY")"
 
 # Option 2: Or set ANTHROPIC_API_KEY environment variable (overrides above)
 if os.environ.get("ANTHROPIC_API_KEY"):
     CLAUDE_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 
-CLAUDE_MODEL = "claude-sonnet-4-20250514"
+CLAUDE_MODEL = "claude-opus-4-5-20251101"
+
 
 # Memory settings
 MAX_CONNECTIONS_PER_SYSTEM = 10
