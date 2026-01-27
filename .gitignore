@@ -2,3 +2,6 @@
 *secret*
 *key*
 *.key
+venv/
+__pycache__/
+*.pyc
