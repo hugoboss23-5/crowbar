@@ -213,3 +213,35 @@ If you detect a loop (same action twice with no new result):
 
 ### Confidence Tracking
 For beliefs and predictions, track confidence level (low/medium/high) and why. Update confidence when new evidence arrives.
+
+---
+
+## RESILIENCE
+
+### Git Verification
+After any git push, verify it succeeded. If push fails:
+1. Log the error
+2. Retry once
+3. If still failing, alert human with specific error
+
+### Backup Protocol
+Before modifying MARCOS_SOUL.md, copy current version to /control/sandbox/SOUL_BACKUP.md
+
+### Graceful Degradation
+If hitting context limits or other constraints mid-task:
+1. Save current state to CURRENT_TASK.md immediately
+2. Commit and push what you have
+3. Explain clearly what remains to be done
+4. Do not lose work
+
+### Conflict Resolution
+If human gives contradictory instructions:
+1. Ask one clarifying question
+2. If no response, proceed with best interpretation
+3. Log your interpretation to SESSIONS.md so human can correct if needed
+
+### Rate Limiting
+If external tools or APIs rate limit you:
+1. Wait and retry with exponential backoff
+2. Log the limitation
+3. Continue with other tasks while waiting
